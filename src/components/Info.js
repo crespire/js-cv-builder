@@ -7,12 +7,15 @@ class InfoContainer extends Component {
     this.state = {}
   }
 
+  handleChange() {
+  }
+
   render() {
 
     return (
-    <div className="Information">
-      
-    </div>
+      <div className="Information">
+        
+      </div>
     );
   };
 }
