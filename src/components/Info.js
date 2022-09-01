@@ -10,10 +10,10 @@ class InfoContainer extends Component {
       email: '',
       phone: '',
       website: ''
-    }
+    };
 
     this.handleInputChange = this.handleInputChange.bind(this);
-  }
+  };
 
   handleInputChange(event) {
     const target = event.target;
@@ -22,8 +22,8 @@ class InfoContainer extends Component {
   
     this.setState({
       [name]: value
-    })
-  }
+    });
+  };
 
   render() {
 
