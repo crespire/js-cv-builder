@@ -11,6 +11,8 @@ class InfoContainer extends Component {
       phone: '',
       website: ''
     }
+
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   handleInputChange(event) {
@@ -28,13 +30,13 @@ class InfoContainer extends Component {
     return (
       <div className="information">
         <div className="information-name">
-          <input type='text' name='name' placeholder='Name' id='name'></input>
+          <input type='text' name='name' placeholder='Name' id='name' onChange={this.handleInputChange}></input>
         </div>
         <div className='information-details'>
-          <input type='text' name='location' placeholder='Location' id='location'></input>
-          <input type='email' name='email' placeholder='your@email.com' id='email'></input>
-          <input type='tel' name='phone' placeholder='555-555-5555' id='phone'></input>
-          <input type='url' name='website' placeholder='https://example.com/' id='website'></input>
+          <input type='text' name='location' placeholder='Location' id='location' onChange={this.handleInputChange}></input>
+          <input type='email' name='email' placeholder='your@email.com' id='email' onChange={this.handleInputChange}></input>
+          <input type='tel' name='phone' placeholder='555-555-5555' id='phone' onChange={this.handleInputChange}></input>
+          <input type='url' name='website' placeholder='https://example.com/' id='website' onChange={this.handleInputChange}></input>
         </div>
       </div>
     );
