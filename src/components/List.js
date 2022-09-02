@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import uniqid from 'uniqid';
 
-class EnumeratedList extends Component {
+class List extends Component {
   constructor(props) {
     super (props);
 
@@ -28,4 +28,4 @@ class EnumeratedList extends Component {
   }
 };
 
-export default EnumeratedList;
+export default List;
