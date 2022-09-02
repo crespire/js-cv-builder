@@ -41,13 +41,15 @@ class List extends Component {
   }
 
   render() {
+    const { place = 'Place', title = 'Title' } = this.props;
+
     return (
       <div className="container"> 
         <div className="container">
-          <input type="text" name="place" placeholder='Place' onChange={this.handleInputChange}></input>
+          <input type="text" name="place" placeholder={place} onChange={this.handleInputChange}></input>
           <input type="date" name="date_start" onChange={this.handleInputChange}></input>
           <input type="date" name="date_end" onChange={this.handleInputChange}></input>
-          <input type="text" name="entry_title" placeholder='Title' onChange={this.handleInputChange}></input>
+          <input type="text" name="entry_title" placeholder={title} onChange={this.handleInputChange}></input>
           <textarea name="entry_description" placeholder='Details...' onChange={this.handleInputChange}></textarea>
           <button>Add</button>
         </div>
