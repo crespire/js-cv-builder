@@ -1,6 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import InfoContainer from './components/Info';
+import List from './components/List';
 
 class App extends Component {
   constructor(props) {
@@ -12,9 +13,10 @@ class App extends Component {
   render() {
 
     return (
-    <div className="App">
-      <InfoContainer />
-    </div>
+      <div className="App">
+        <InfoContainer />
+        <List />
+      </div>
     );
   };
 }
