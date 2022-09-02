@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <div className="App">
         <InfoContainer />
-        <List />
+        <List place='School' title='Degree' />
       </div>
     );
   };
