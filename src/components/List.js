@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import uniqid from 'uniqid';
 import ListItem from './ListItem';
+import EditListItem from './EditListItem';
 
 class List extends Component {
   constructor(props) {
@@ -52,6 +53,8 @@ class List extends Component {
   render() {
     const { place = 'Place', title = 'Title' } = this.props;
     const itemList = this.state.listItems;
+    const editMode = this.state.editMode;
+    const editID = this.state.editID;
 
     return (
       <div className="container"> 
@@ -65,7 +68,11 @@ class List extends Component {
         </div>
         <div className="container">
           {itemList.map((item) => {
-            return <ListItem key={item.id} place={item.place} date_end={item.date_end} date_start={item.date_start} title={item.entry_title} description={item.entry_description} />
+            if (editMode && editID === item.id) {
+              return <EditListItem key={item.id} place={item.place} date_end={item.date_end} date_start={item.date_start} title={item.entry_title} description={item.entry_description} />
+            } else {
+              return <ListItem key={item.id} place={item.place} date_end={item.date_end} date_start={item.date_start} title={item.entry_title} description={item.entry_description} />
+            }            
           })}
         </div>
       </div>
