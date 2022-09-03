@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import uniqid from 'uniqid';
+import ListItem from './ListItem';
 
 class List extends Component {
   constructor(props) {
@@ -24,9 +25,17 @@ class List extends Component {
   }
 
   handleNewItem() {
-    // on click to add a new item.
-    // we want to save the item into the state array
-    // then reset the 'newItem' so that it is ready to receive new info
+    this.setState({
+      listItems: this.state.listItems.concat([this.state.newItem]),
+      newItem: {
+        place: '',
+        date_start: '',
+        date_end: '',
+        entry_title: '',
+        entry_description: '',
+        id: uniqid()
+      }
+    })
   }
 
   handleInputChange(event) {
@@ -42,18 +51,23 @@ class List extends Component {
 
   render() {
     const { place = 'Place', title = 'Title' } = this.props;
+    const itemList = this.state.listItems;
 
     return (
       <div className="container"> 
-        <div className="container">
-          <input type="text" name="place" placeholder={place} onChange={this.handleInputChange}></input>
-          <input type="date" name="date_start" onChange={this.handleInputChange}></input>
-          <input type="date" name="date_end" onChange={this.handleInputChange}></input>
-          <input type="text" name="entry_title" placeholder={title} onChange={this.handleInputChange}></input>
-          <textarea name="entry_description" placeholder='Details...' onChange={this.handleInputChange}></textarea>
-          <button>Add</button>
+        <div id="new_item" className="container">
+          <input type="text" name="place" value={this.state.newItem.place} placeholder={place} onChange={this.handleInputChange}></input>
+          <input type="date" name="date_start" value={this.state.newItem.date_start} onChange={this.handleInputChange}></input>
+          <input type="date" name="date_end" value={this.state.newItem.date_end} onChange={this.handleInputChange}></input>
+          <input type="text" name="entry_title" value={this.state.newItem.entry_title} placeholder={title} onChange={this.handleInputChange}></input>
+          <textarea name="entry_description" value={this.state.newItem.entry_description} placeholder='Details...' onChange={this.handleInputChange}></textarea>
+          <button onClick={this.handleNewItem}>Add</button>
         </div>
-
+        <div className="container">
+          {itemList.map((item) => {
+            return <ListItem key={item.id} place={item.place} date_end={item.date_end} date_start={item.date_start} title={item.entry_title} description={item.entry_description} />
+          })}
+        </div>
       </div>
     )
   }
