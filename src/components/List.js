@@ -24,6 +24,8 @@ class List extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleNewItem = this.handleNewItem.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
+    this.handleEditInput = this.handleEditInput.bind(this);
+    this.handleEditSubmit = this.handleEditSubmit.bind(this);
   }
 
   handleNewItem() {
@@ -58,6 +60,14 @@ class List extends Component {
     })
   }
 
+  handleEditInput(event) {
+    // Stuff
+  }
+
+  handleEditSubmit(event) {
+    // Stuff
+  }
+
   render() {
     const { place = 'Place', title = 'Title' } = this.props;
     const itemList = this.state.listItems;
@@ -77,7 +87,7 @@ class List extends Component {
         <div className="container">
           {itemList.map((item) => {
             if (editMode && editID === item.id) {
-              return <EditListItem key={item.id} place={item.place} date_end={item.date_end} date_start={item.date_start} title={item.entry_title} description={item.entry_description} />
+              return <EditListItem key={item.id} itemID={item.id} handleEditInput={this.handleEditInput} handleEditSubmit={this.handleEditSubmit} place={item.place} date_end={item.date_end} date_start={item.date_start} title={item.entry_title} description={item.entry_description} />
             } else {
               return <ListItem key={item.id} itemID={item.id} toggleEdit={this.toggleEdit} place={item.place} date_end={item.date_end} date_start={item.date_start} title={item.entry_title} description={item.entry_description} />
             }            
