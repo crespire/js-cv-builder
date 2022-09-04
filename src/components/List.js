@@ -31,6 +31,7 @@ class List extends Component {
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleNewItem = this.handleNewItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
     this.handleEditInput = this.handleEditInput.bind(this);
     this.handleEditSubmit = this.handleEditSubmit.bind(this);
@@ -59,6 +60,14 @@ class List extends Component {
     this.setState({
       newItem: { ...itemUpdate, [name]: value}
     });
+  }
+
+  deleteItem(itemID) {
+    const deleteIndex = this.state.listItems.findIndex((item) => item.id === itemID);
+    const updatedItems = this.state.listItems.splice(deleteIndex, 1);
+    this.setState({
+      listItems: updatedItems
+    })
   }
 
   toggleEdit(itemID) {
@@ -122,7 +131,7 @@ class List extends Component {
             if (editMode && editID === item.id) {
               return <EditListItem key={item.id} place={place} title={title} itemID={item.id} handleEditInput={this.handleEditInput} handleEditSubmit={this.handleEditSubmit} editItem={editItem} />
             } else {
-              return <ListItem key={item.id} itemID={item.id} toggleEdit={this.toggleEdit} place={item.place} date_end={item.date_end} date_start={item.date_start} title={item.entry_title} description={item.entry_description} />
+              return <ListItem key={item.id} itemID={item.id} toggleEdit={this.toggleEdit} deleteItem={this.deleteItem} place={item.place} date_end={item.date_end} date_start={item.date_start} title={item.entry_title} description={item.entry_description} />
             }            
           })}
         </div>
