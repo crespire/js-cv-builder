@@ -16,6 +16,7 @@ class App extends Component {
       <div className="App">
         <InfoContainer />
         <List place='School' title='Degree' />
+        <List place='Company' title='Job Title' />
       </div>
     );
   };
