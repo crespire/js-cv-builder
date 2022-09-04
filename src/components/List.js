@@ -23,6 +23,7 @@ class List extends Component {
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleNewItem = this.handleNewItem.bind(this);
+    this.toggleEdit = this.toggleEdit.bind(this);
   }
 
   handleNewItem() {
@@ -50,6 +51,13 @@ class List extends Component {
     });
   }
 
+  toggleEdit(itemID) {
+    this.setState({
+      editMode: true,
+      editID: itemID
+    })
+  }
+
   render() {
     const { place = 'Place', title = 'Title' } = this.props;
     const itemList = this.state.listItems;
@@ -71,7 +79,7 @@ class List extends Component {
             if (editMode && editID === item.id) {
               return <EditListItem key={item.id} place={item.place} date_end={item.date_end} date_start={item.date_start} title={item.entry_title} description={item.entry_description} />
             } else {
-              return <ListItem key={item.id} place={item.place} date_end={item.date_end} date_start={item.date_start} title={item.entry_title} description={item.entry_description} />
+              return <ListItem key={item.id} itemID={item.id} toggleEdit={this.toggleEdit} place={item.place} date_end={item.date_end} date_start={item.date_start} title={item.entry_title} description={item.entry_description} />
             }            
           })}
         </div>
