@@ -19,6 +19,14 @@ class List extends Component {
         entry_description: '',
         id: uniqid()
       },
+      editItem: {
+        place: '',
+        date_start: '',
+        date_end: '',
+        entry_title: '',
+        entry_description: '',
+        id: uniqid()
+      }
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -56,21 +64,46 @@ class List extends Component {
   toggleEdit(itemID) {
     this.setState({
       editMode: true,
-      editID: itemID
+      editID: itemID,
+      editItem: this.state.listItems.find((item) => { return item.id === itemID})
     })
   }
 
   handleEditInput(event) {
-    // Stuff
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+    let itemUpdate = this.state.editItem;
+  
+    this.setState({
+      editItem: { ...itemUpdate, [name]: value}
+    });
   }
 
-  handleEditSubmit(event) {
-    // Stuff
+  handleEditSubmit(itemID) {
+    const updatedItem = this.state.editItem;
+    const updatedState = this.state.listItems;
+    const updateIndex = updatedState.findIndex((item) => item.id === itemID);
+    updatedState.splice(updateIndex, 1, updatedItem);
+    this.setState({
+      listItems: updatedState,
+      editItem: {
+        place: '',
+        date_start: '',
+        date_end: '',
+        entry_title: '',
+        entry_description: '',
+        id: ''
+      },
+      editMode: false,
+      editID: ''
+    })
   }
 
   render() {
     const { place = 'Place', title = 'Title' } = this.props;
     const itemList = this.state.listItems;
+    const editItem = this.state.editItem;
     const editMode = this.state.editMode;
     const editID = this.state.editID;
 
@@ -87,7 +120,7 @@ class List extends Component {
         <div className="container">
           {itemList.map((item) => {
             if (editMode && editID === item.id) {
-              return <EditListItem key={item.id} itemID={item.id} handleEditInput={this.handleEditInput} handleEditSubmit={this.handleEditSubmit} place={item.place} date_end={item.date_end} date_start={item.date_start} title={item.entry_title} description={item.entry_description} />
+              return <EditListItem key={item.id} place={place} title={title} itemID={item.id} handleEditInput={this.handleEditInput} handleEditSubmit={this.handleEditSubmit} editItem={editItem} />
             } else {
               return <ListItem key={item.id} itemID={item.id} toggleEdit={this.toggleEdit} place={item.place} date_end={item.date_end} date_start={item.date_start} title={item.entry_title} description={item.entry_description} />
             }            
