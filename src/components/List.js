@@ -64,11 +64,11 @@ class List extends Component {
 
   deleteItem(itemID) {
     const deleteIndex = this.state.listItems.findIndex((item) => item.id === itemID);
-    let updatedItems = this.state.listItems
-    updatedItems.splice(deleteIndex, 1);
+    let updatedList = this.state.listItems
+    updatedList.splice(deleteIndex, 1);
 
     this.setState({
-      listItems: updatedItems
+      listItems: updatedList
     })
   }
 
@@ -93,12 +93,12 @@ class List extends Component {
 
   handleEditSubmit(itemID) {
     const updatedItem = this.state.editItem;
-    let updatedState = this.state.listItems;
-    const updateIndex = updatedState.findIndex((item) => item.id === itemID);
-    updatedState.splice(updateIndex, 1, updatedItem);
+    let updatedList = this.state.listItems;
+    const updateIndex = updatedList.findIndex((item) => item.id === itemID);
+    updatedList.splice(updateIndex, 1, updatedItem);
 
     this.setState({
-      listItems: updatedState,
+      listItems: updatedList,
       editItem: {
         place: '',
         date_start: '',
