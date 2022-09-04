@@ -64,7 +64,9 @@ class List extends Component {
 
   deleteItem(itemID) {
     const deleteIndex = this.state.listItems.findIndex((item) => item.id === itemID);
-    const updatedItems = this.state.listItems.splice(deleteIndex, 1);
+    let updatedItems = this.state.listItems
+    updatedItems.splice(deleteIndex, 1);
+
     this.setState({
       listItems: updatedItems
     })
@@ -91,9 +93,10 @@ class List extends Component {
 
   handleEditSubmit(itemID) {
     const updatedItem = this.state.editItem;
-    const updatedState = this.state.listItems;
+    let updatedState = this.state.listItems;
     const updateIndex = updatedState.findIndex((item) => item.id === itemID);
     updatedState.splice(updateIndex, 1, updatedItem);
+
     this.setState({
       listItems: updatedState,
       editItem: {
