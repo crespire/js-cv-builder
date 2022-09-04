@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class ListItem extends Component {
   render() {
-    const { itemID, toggleEdit, place, date_end, date_start, title, description }= this.props;
+    const { itemID, toggleEdit, deleteItem, place, date_end, date_start, title, description }= this.props;
 
     return (
       <div>
@@ -11,6 +11,7 @@ class ListItem extends Component {
         <h6>{title}</h6>
         <p>{description}</p>
         <button onClick={() => { toggleEdit(itemID)} }>Edit</button>
+        <button onClick={() => { deleteItem(itemID)} }>Delete</button>
       </div>
     );
   }
