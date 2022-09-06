@@ -120,13 +120,13 @@ class List extends Component {
     const editID = this.state.editID;
 
     return (
-      <div className="container"> 
-        <div id="new_item" className="container">
+      <div className="container flex flex-col justify-center align-center"> 
+        <div id="new_item" className="container grid-cols-4 grid-rows-3 gap-4">
           <input type="text" name="place" value={this.state.newItem.place} placeholder={place} onChange={this.handleInputChange}></input>
           <input type="date" name="date_start" value={this.state.newItem.date_start} onChange={this.handleInputChange}></input>
           <input type="date" name="date_end" value={this.state.newItem.date_end} onChange={this.handleInputChange}></input>
           <input type="text" name="entry_title" value={this.state.newItem.entry_title} placeholder={title} onChange={this.handleInputChange}></input>
-          <textarea name="entry_description" value={this.state.newItem.entry_description} placeholder='Details...' onChange={this.handleInputChange}></textarea>
+          <textarea name="entry_description" className="row-span-2" value={this.state.newItem.entry_description} placeholder='Details...' onChange={this.handleInputChange}></textarea>
           <button onClick={this.handleNewItem}>Add</button>
         </div>
         <div className="container">
