@@ -28,11 +28,11 @@ class InfoContainer extends Component {
   render() {
 
     return (
-      <div className="container flex justify-center align-center">
-        <div className="place-content-center">
+      <div className="flex place-content-between">
+        <div className="container place-content-center">
           <input className="text-3xl" type='text' name='name' placeholder='Name' id='name' onChange={this.handleInputChange}></input>
         </div>
-        <div className='grid grid-cols-2 gap-4 place-content-center'>
+        <div className='container grid grid-cols-2 gap-4 place-content-center'>
           <input type='text' name='location' placeholder='Location' id='location' onChange={this.handleInputChange}></input>
           <input type='email' name='email' placeholder='your@email.com' id='email' onChange={this.handleInputChange}></input>
           <input type='tel' name='phone' placeholder='555-555-5555' id='phone' onChange={this.handleInputChange}></input>
