@@ -13,7 +13,7 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App p-12 flex flex-col justify-center align-center place-content-center">
+      <div className="App container mx-auto p-12 flex flex-col justify-center align-center place-content-center">
         <InfoContainer />
         <List place='School' title='Degree' />
         <List place='Company' title='Job Title' />
