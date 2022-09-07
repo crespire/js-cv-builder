@@ -121,7 +121,7 @@ class List extends Component {
 
     return (
       <div className="flex flex-col justify-center align-center"> 
-        <div id="new_item" className="container grid grid-cols-10 grid-rows-3 gap-4 border-dashed border-slate-600 border p-6">
+        <div id="new_item" className="container print:hidden grid grid-cols-10 grid-rows-3 gap-4 border-dashed border-slate-600 border p-6">
           <input type="text" name="place" className="col-span-2 col-start-1 row-start-1 row-span-1" value={this.state.newItem.place} placeholder={place} onChange={this.handleInputChange}></input>
           <div className="col-start-1 row-start-2 row-span-1 col-span-2 text-center">
             <label htmlFor="date_start">Start:</label>
