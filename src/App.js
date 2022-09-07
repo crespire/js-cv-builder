@@ -16,7 +16,7 @@ class App extends Component {
       <div className="App container mx-auto p-12 flex flex-col justify-center align-center place-content-center">
         <InfoContainer />
         <List place='School' title='Degree' />
-        <List place='Company' title='Job Title' />
+        {/* <List place='Company' title='Job Title' /> */}
       </div>
     );
   };
