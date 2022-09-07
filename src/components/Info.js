@@ -28,7 +28,7 @@ class InfoContainer extends Component {
   render() {
 
     return (
-      <div className="flex place-content-between">
+      <div className="flex place-content-between px-12 py-6">
         <div className="container place-content-center">
           <input className="text-3xl" type='text' name='name' placeholder='Name' id='name' onChange={this.handleInputChange}></input>
         </div>
