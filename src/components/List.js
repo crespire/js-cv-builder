@@ -123,18 +123,18 @@ class List extends Component {
       <div className="flex flex-col justify-center align-center space-y-2"> 
         <span className="text-2xl">{heading}</span>
         <div id="new_item" className="container print:hidden grid grid-cols-10 grid-rows-3 gap-4 border-dashed border-slate-600 border p-6">
-          <input type="text" name="place" className="col-span-2 col-start-1 row-start-1 row-span-1" value={this.state.newItem.place} placeholder={place} onChange={this.handleInputChange}></input>
+          <input type="text" name="place" className="border border-slate-200 border-solid col-span-2 col-start-1 row-start-1 row-span-1" value={this.state.newItem.place} placeholder={place} onChange={this.handleInputChange}></input>
           <div className="col-start-1 row-start-2 row-span-1 col-span-2 text-center">
             <label htmlFor="date_start">Start:</label>
-            <input type="date" name="date_start" value={this.state.newItem.date_start} onChange={this.handleInputChange}></input>
+            <input type="date" name="date_start" className="border border-slate-200 border-solid" value={this.state.newItem.date_start} onChange={this.handleInputChange}></input>
           </div>
           <div className="col-start-1 row-start-3 row-span-1 col-span-2 text-center">
             <label htmlFor="date_end">End:</label>
-            <input type="date" name="date_end" value={this.state.newItem.date_end} onChange={this.handleInputChange}></input>
+            <input type="date" name="date_end" className="border border-slate-200 border-solid" value={this.state.newItem.date_end} onChange={this.handleInputChange}></input>
           </div>
-          <input type="text" name="entry_title" className="col-span-7 col-start-3 row-start-1 row-span-1" value={this.state.newItem.entry_title} placeholder={title} onChange={this.handleInputChange}></input>
-          <textarea name="entry_description" className="col-span-7 col-start-3 row-start-2 row-span-2" value={this.state.newItem.entry_description} placeholder='Details...' onChange={this.handleInputChange}></textarea>
-          <button className="bg-slate-200 col-span-1 col-start-10 row-span-3 row-start-1" onClick={this.handleNewItem}>Add</button>
+          <input type="text" name="entry_title" className="border border-slate-200 border-solid col-span-7 col-start-3 row-start-1 row-span-1" value={this.state.newItem.entry_title} placeholder={title} onChange={this.handleInputChange}></input>
+          <textarea name="entry_description" className="border border-slate-200 border-solid col-span-7 col-start-3 row-start-2 row-span-2" value={this.state.newItem.entry_description} placeholder='Details...' onChange={this.handleInputChange}></textarea>
+          <button className="print:hidden bg-slate-200 col-span-1 col-start-10 row-span-3 row-start-1" onClick={this.handleNewItem}>Add</button>
         </div>
         <div className="container">
           {itemList.map((item) => {
