@@ -113,7 +113,7 @@ class List extends Component {
   }
 
   render() {
-    const { place = 'Place', title = 'Title' } = this.props;
+    const { heading = 'Section', place = 'Place', title = 'Title' } = this.props;
     const itemList = this.state.listItems;
     const editItem = this.state.editItem;
     const editMode = this.state.editMode;
@@ -121,6 +121,7 @@ class List extends Component {
 
     return (
       <div className="flex flex-col justify-center align-center space-y-2"> 
+        <span className="text-2xl">{heading}</span>
         <div id="new_item" className="container print:hidden grid grid-cols-10 grid-rows-3 gap-4 border-dashed border-slate-600 border p-6">
           <input type="text" name="place" className="col-span-2 col-start-1 row-start-1 row-span-1" value={this.state.newItem.place} placeholder={place} onChange={this.handleInputChange}></input>
           <div className="col-start-1 row-start-2 row-span-1 col-span-2 text-center">

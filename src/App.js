@@ -15,8 +15,8 @@ class App extends Component {
     return (
       <div className="App container mx-auto max-w-7xl print:p-0 p-12 flex flex-col justify-center align-center place-content-center space-y-4">
         <InfoContainer />
-        <List place='School' title='Degree' />
-        <List place='Company' title='Job Title' />
+        <List heading='Education' place='School' title='Degree' />
+        <List heading='Work Experience' place='Company' title='Job Title' />
       </div>
     );
   };
