@@ -131,7 +131,6 @@ class List extends Component {
             <label htmlFor="date_end">End:</label>
             <input type="date" name="date_end" value={this.state.newItem.date_end} onChange={this.handleInputChange}></input>
           </div>
-          
           <input type="text" name="entry_title" className="col-span-7 col-start-3 row-start-1 row-span-1" value={this.state.newItem.entry_title} placeholder={title} onChange={this.handleInputChange}></input>
           <textarea name="entry_description" className="col-span-7 col-start-3 row-start-2 row-span-2" value={this.state.newItem.entry_description} placeholder='Details...' onChange={this.handleInputChange}></textarea>
           <button className="bg-slate-200 col-span-1 col-start-10 row-span-3 row-start-1" onClick={this.handleNewItem}>Add</button>
